@@ -1,0 +1,83 @@
+/*START HACK*/
+html{                       /*########################################*/
+    font-size: 62.5%;       /*## Con este fragmento de código       ##*/
+}                           /*## logramos definir una operación     ##*/
+                            /*## matemática que establece que       ##*/
+body{                       /*## 1rem = 10px con el fin de que      ##*/
+    font-size: 16px;        /*## nuestro website sea más renponsive ##*/
+}                           /*########################################*/
+/*END HACK*/
+
+:root{                      /*pseudoselector, son elementos que no existen en el html*/
+    --blanco: #FFFFFF;    /*y se usan para almacenar variables de CSS*/
+    --oscuro: #212121;
+    --principal: #FFC107;
+    --secundario: #0097A7;
+    --gris: #757575;
+}
+
+body{
+    font-family: 'Krub', sans-serif;
+}
+
+.titulo{
+    text-align: center;
+    font-size: 3.8rem;
+ }
+
+h1.titulo span{
+    font-size: 2rem;
+}
+.nav-bg{
+    background-color: var(--secundario);
+}
+
+.navegacion-principal{
+    flex-direction: column;              /*row(en flila) viene por defecto, column(en columna) los coloca en columna*/   
+    display: flex;                       /*Habilita flexbox a esta clase y nos da acceso a nuevas propiedades*/    
+    align-items: center;
+}
+
+@media (min-width: 480px) {             /*estandar para teléfonos*/
+    
+}
+
+@media (min-width: 768px) {             /*estandar para tablets*/
+    
+}
+
+@media (min-width: 1140px) {            /*estandar para laptop o computadora de escritorio*/
+    
+}
+
+@media (min-width: 1400px) {            /*estandar para pantallas más grandes*/
+    
+}
+
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;      /*Permite mover el contenido horizontal (o verticalmente añadiendo align-itenms: *****)*/
+        
+    }
+}
+
+.navegacion-principal a{
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700; /*o bold*/
+    padding: 1rem;
+}
+
+.navegacion-principal a:hover{
+    background-color: var(--principal);
+    color: var(--oscuro);
+}
+
+.contenedor{                    /*mediante los valores de margin centraremos contenedores deseados*/
+    max-width: 120rem;          /*usamos 12rem o 1200px como máximo de pantalla ya que es el standar, si fuese la app de un tv deberíamos usar una cantidad más grande, si fuese más pequeño toma por defecto el 100% de pantalla*/
+    margin: 0 auto;             /*en qué posición se va a colocar un elemento referente al top, right, botton y left, margin: t r b l como t=b y r=l se escriben una sola vez*/
+
+}
+

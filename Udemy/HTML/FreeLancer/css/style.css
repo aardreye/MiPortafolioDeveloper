@@ -1,3 +1,12 @@
+:root{                      /*pseudoselector, son elementos que no existen en el html*/
+    --blanco: #FFFFFF;    /*y se usan para almacenar variables de CSS*/
+    --oscuro: #212121;
+    --principal: #FFC107;
+    --secundario: #0097A7;
+    --gris: #757575;
+    --grisClaro: #DFE9F3
+}
+
 /*START HACK*/
 html{                       /*########################################*/
     font-size: 62.5%;       /*## Con este fragmento de código       ##*/
@@ -8,28 +17,65 @@ body{                       /*## 1rem = 10px con el fin de que      ##*/
 }                           /*########################################*/
 /*END HACK*/
 
-:root{                      /*pseudoselector, son elementos que no existen en el html*/
-    --blanco: #FFFFFF;    /*y se usan para almacenar variables de CSS*/
-    --oscuro: #212121;
-    --principal: #FFC107;
-    --secundario: #0097A7;
-    --gris: #757575;
+/*START HACK*/
+html{                       /*#################################################*/
+    box-sizing: border-box; /*## Aplica un modelo de diseño de caja natural  ##*/
+}                           /*## a todos los elementos, pero permitiendo que ##*/
+                            /*## los componentes cambien, es decir, que al   ##*/
+*, *:before, *:after {      /*## agregar padding, border o margin el width   ##*/
+    box-sizing: inherit;    /*## no se verá afectado en sus medidas finales  ##*/
+}                           /*#################################################*/
+/*END HACK*/
+
+html{
+    scroll-snap-type: x mandatory;
 }
 
 body{
     font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%); /*crear un color de fondo degradado*/ /*(de abajo hacia arriba, color_de_inicio donde_inicia, color_final donde_termina)*/ 
 }
 
-.titulo{
-    text-align: center;
+h1{
     font-size: 3.8rem;
- }
+}
+
+h2{
+    font-size: 2.8rem;
+}
+
+h3{
+    font-size: 1.8rem;
+}
+
+h1, h2, h3{
+    text-align: center;
+}
 
 h1.titulo span{
     font-size: 2rem;
 }
 .nav-bg{
     background-color: var(--secundario);
+}
+
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 80%;
+    text-align: center;
+    border: none;
+}
+
+.boton:hover {
+    cursor: pointer;
 }
 
 .navegacion-principal{
@@ -57,9 +103,70 @@ h1.titulo span{
 @media (min-width: 768px) {
     .navegacion-principal {
         flex-direction: row;
-        justify-content: space-between;      /*Permite mover el contenido horizontal (o verticalmente añadiendo align-itenms: *****)*/
-        
+        justify-content:space-around;      /*Permite mover el contenido horizontal (o verticalmente añadiendo align-itenms: *****)*/
     }
+
+    .boton {
+        width: auto;
+    }
+
+    /*servicios*/
+
+    .servicios{
+        display: grid; /*habilita las propiedades de grid en esta clase*/
+        /*grid-template-columns: 300px 300px; /*define el contenido en 2 columnas de izquierda a derecha*/
+        /*grid-template-rows: 200px 800px; /*define el cotenido en dos filas, una de 200px y otra de 800px*/
+        /*grid: 200px 800px / 300px 300 px /*es una forma reducida de grid-template-columns y grid-template-rows*/
+        grid-template-columns: repeat(3, 1fr); /*(repeat (3, 1fr) = 1fr 1fr 1fr) 1fr = 33.3% fr=fracción*/
+        column-gap: 1rem; /*es una propiedad de grid que crea separacion entre columnas*/
+
+    }
+
+}
+
+.w-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-100{
+        width: auto;
+    }
+}
+
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+.flex {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.servicio{
+    display: flex;
+    flex-direction: column; /*cambia la direccion del flex a columnas*/
+    align-items: center; /*centra el flex cuando está en columnas*/
+}
+
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal; /*grosor de letra*/
+}
+
+.servicio p {
+    line-height: 2; /*el interlineado ensancha*/
+    text-align: center;
+}
+
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--principal);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .navegacion-principal a{
@@ -67,7 +174,7 @@ h1.titulo span{
     text-decoration: none;
     font-size: 2rem;
     font-weight: 700; /*o bold*/
-    padding: 1rem;
+    padding: 1rem; /*es el relleno interno del contenedor*/
 }
 
 .navegacion-principal a:hover{
@@ -76,8 +183,116 @@ h1.titulo span{
 }
 
 .contenedor{                    /*mediante los valores de margin centraremos contenedores deseados*/
-    max-width: 120rem;          /*usamos 12rem o 1200px como máximo de pantalla ya que es el standar, si fuese la app de un tv deberíamos usar una cantidad más grande, si fuese más pequeño toma por defecto el 100% de pantalla*/
+    max-width: 120rem;          /*evita el scrol a los lados, usamos 12rem o 1200px como máximo de pantalla ya que es el standar, si fuese la app de un tv deberíamos usar una cantidad más grande, si fuese más pequeño toma por defecto el 100% de pantalla*/
     margin: 0 auto;             /*en qué posición se va a colocar un elemento referente al top, right, botton y left, margin: t r b l como t=b y r=l se escriben una sola vez*/
 
 }
 
+
+.sombra{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.54);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.54);
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.54);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.hero{
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat; /*por defecto las imgs se repiten cuando el contenedor es más grande, esta propiedad evita eso*/
+    background-size: cover; /*abarca el contenido de todo la caja si la img es mas pequeña o grande*/
+    height: 450px;
+    position: relative; /*es necesario para que un contenedor hijo se pueda posicionar de manera absoluta, colocarse en cualquier parte del contenedor*/
+    margin-bottom: 2rem; /*crea una separación de 20px referente al contenedor de abajo*/
+}
+
+.contenido-hero{
+    position: absolute; /*permite posicionar el contenedor hijo en el espacio deseado dentro del contenedor padre, el padre debe tener position: relative*/
+    background-color: rgba(0, 0, 0, .5); /*con colores rgba obtengo transparencia en imágenes, el 4to argumento va de 0 a 1*/
+    background-color: rgb(0 0 0 / 60%); /*es una nueva sintaxis que no requiere alpha chanel para añadir transparencia, el 4to argumento va de 0 a 100%, deja obsoleta la línea de código anterior, la cual no eliminamos porque hay navegadores que aún no soportan esta sintaxis*/
+    width: 100%;        /*toma todo el espacio disponible de izq a der*/ /*width y height pueden ser reemplazados por top, left, botton, right 0*/
+    height: 100%;       /*toma todo el espacio disponible de arr a abj*/
+    
+    /*centrar cualquier contenido vertical y horizontalmente*/
+    display: flex;      /*habilitamos flexbox con el objetivo de centrar los hijos de nuestro contenedor*/    
+    flex-direction: column; /*coloca en columna los contenedores hijos*/
+    align-items: center; /*alinea horizontalmente ya que flex direction es column, cuando se aplica display flex y flex direction row alinea horizontalmente con justify-content center*/
+    justify-content: center; /*alinea verticalmente ya que flex direction es column, cuando se aplica display flex y flex direction row alinea verticalmente con align-items center*/ 
+}
+
+.contenido-hero h2,
+.contenido-hero p{
+    color: var(--blanco);
+}
+
+/*contacto*/
+
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem, 100%); /*elije el valor más pequeño y lo asigna*/
+    margin: 0 auto; /*centra un elemento horizontalmente, esto se usa cuando no se implementa un display y es un elemento unico*/
+    border-radius: 1rem;
+    padding: 2rem 1rem;
+
+}
+
+.formulario fieldset{
+    border: none;
+}
+
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: var(--principal);
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+
+    .campo:nth-child(3),
+    .campo:nth-child(4)
+    { /*selecciona el 3cer contenedor de clase campo*/
+        grid-column: 1 / 3; /*expande el contenedor desde la columna 1 hasta la 3*/
+    }
+
+}
+
+.campo{
+    margin-bottom: 1rem;
+}
+
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block; /*cada labol toma todo el espacio disponible*/
+}
+
+.campo textarea{
+    height: 20rem;
+}
+
+.campo input[type="text"],
+.campo input[type="tel"],
+.campo input[type="email"],
+.campo textarea
+ {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+
+.footer{
+    text-align: center;
+}

@@ -51,8 +51,61 @@ h1, h2, h3{
 h1.titulo span{
     font-size: 2rem;
 }
+
+.cabecera{
+    display: block;
+    justify-content: space-around;
+}
+
+.buscar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buscar input[type="text"]
+ {
+    height: 4rem;
+    border-color: var(--oscuro);    
+    border-radius: .5rem;
+    border-style: solid;
+    width: 100%;
+    margin-right: 2rem;
+}
+
 .nav-bg{
     background-color: var(--secundario);
+}
+
+.redes-sociales{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.red-social a img{
+    height: 100%;
+    width: 100%;
+    max-height: 8.5rem;
+    max-width: 8.5rem;
+    min-width: 4.5rem;
+    min-height: 4.5rem;
+    border-radius: 10%;
+}
+
+.color-blanco{
+    background-color: var(--blanco);
+}
+
+.circular{
+    background-color: var(--blanco);
+    border-radius: 50% !important;
+}
+
+.red-social{
+    padding: 1rem;
 }
 
 .boton{
@@ -70,7 +123,8 @@ h1.titulo span{
     border: none;
 }
 
-.boton:hover {
+.boton:hover,
+.icon-search {
     cursor: pointer;
 }
 
@@ -89,14 +143,22 @@ h1.titulo span{
 }
 
 @media (min-width: 1140px) {            /*estandar para laptop o computadora de escritorio*/
-    
+    .cabecera{
+        display: flex;
+        justify-content: space-around;
+    }    
 }
 
 @media (min-width: 1400px) {            /*estandar para pantallas más grandes*/
-    
+
 }
 
 @media (min-width: 768px) {
+    .buscar input[type="text"]{
+    padding-left: 25rem;
+    padding-right: 25rem;
+    }
+
     .navegacion-principal {
         flex-direction: row;
         justify-content:space-around;      /*Permite mover el contenido horizontal (o verticalmente añadiendo align-itenms: *****)*/
@@ -127,6 +189,10 @@ h1.titulo span{
 @media (min-width: 768px) {
     .w-100{
         width: auto;
+    }
+
+    .red-social{
+        padding: 2rem;
     }
 }
 
@@ -206,7 +272,7 @@ h1.titulo span{
 .contenido-hero{
     position: absolute; /*permite posicionar el contenedor hijo en el espacio deseado dentro del contenedor padre, el padre debe tener position: relative*/
     background-color: rgba(0, 0, 0, .5); /*con colores rgba obtengo transparencia en imágenes, el 4to argumento va de 0 a 1*/
-    background-color: rgb(0 0 0 / 60%); /*es una nueva sintaxis que no requiere alpha chanel para añadir transparencia, el 4to argumento va de 0 a 100%, deja obsoleta la línea de código anterior, la cual no eliminamos porque hay navegadores que aún no soportan esta sintaxis*/
+    background-color: rgb(0 0 0 / 40%); /*es una nueva sintaxis que no requiere alpha chanel para añadir transparencia, el 4to argumento va de 0 a 100%, deja obsoleta la línea de código anterior, la cual no eliminamos porque hay navegadores que aún no soportan esta sintaxis*/
     width: 100%;        /*toma todo el espacio disponible de izq a der*/ /*width y height pueden ser reemplazados por top, left, botton, right 0*/
     height: 100%;       /*toma todo el espacio disponible de arr a abj*/
     
@@ -220,6 +286,10 @@ h1.titulo span{
 .contenido-hero h2,
 .contenido-hero p{
     color: var(--blanco);
+}
+
+@media (min-width: 768px) {
+    
 }
 
 /*contacto*/

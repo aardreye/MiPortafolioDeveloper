@@ -1,10 +1,10 @@
 :root{                      /*pseudoselector, son elementos que no existen en el html*/
     --blanco: #FFFFFF;    /*y se usan para almacenar variables de CSS*/
     --oscuro: #212121;
-    --principal: #FFC107;
+    --principal: #7dbaff;
     --secundario: #0097A7;
     --gris: #757575;
-    --grisClaro: #DFE9F3
+    --grisClaro: #e4fcff
 }
 
 /*START HACK*/
@@ -41,7 +41,7 @@ h2{
 }
 
 h3{
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 h1, h2, h3{
@@ -150,13 +150,41 @@ h1.titulo span{
     text-align: start !important;
 }
 
+.mapa map iframe{
+    height: 40rem;
+    width: 100%;
+    border-radius: 1rem;
+}
+
 main{
     display: block;
 }
 
 .mi-curriculum hr{    
     width: 90%;
-    style: bold;
+}
+
+.perfil h3{
+    text-align: start;
+}
+
+.logos img{
+    height: 100%;
+    width: 100%;
+    max-height: 10rem;
+    max-width: 10rem;
+    min-width: 4.5rem;
+    min-height: 4.5rem;
+    border-radius: 10%;
+}
+
+.logos {
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 @media (min-width: 480px) {             /*estandar para teléfonos*/
@@ -164,30 +192,6 @@ main{
 }
 
 @media (min-width: 768px) {             /*estandar para tablets*/
-    
-}
-
-@media (min-width: 1140px) {            /*estandar para laptop o computadora de escritorio*/
-    .cabecera{
-        display: flex;
-        justify-content: space-around;
-    }   
-    
-    aside{
-        width: 25%;
-        min-width: 20%;
-        height: 100px;
-        padding-left: 5rem;
-        padding-right: 2rem;
-        float: left;
-    }
-}
-
-@media (min-width: 1400px) {            /*estandar para pantallas más grandes*/
-
-}
-
-@media (min-width: 768px) {
     .buscar input[type="text"]{
     padding-left: 25rem;
     padding-right: 25rem;
@@ -213,6 +217,33 @@ main{
         column-gap: 1rem; /*es una propiedad de grid que crea separacion entre columnas*/
 
     }
+
+    .educacion{
+        display: flex;
+    }
+    
+    .experiencia{
+        display: flex;
+    }
+}
+
+@media (min-width: 1140px) {            /*estandar para laptop o computadora de escritorio*/
+    .cabecera{
+        display: flex;
+        justify-content: space-around;
+    }   
+    
+    aside{
+        width: 25%;
+        min-width: 20%;
+        height: 100px;
+        padding-left: 5rem;
+        padding-right: 2rem;
+        float: left;
+    }
+}
+
+@media (min-width: 1400px) {            /*estandar para pantallas más grandes*/
 
 }
 
@@ -245,9 +276,10 @@ main{
     align-items: center; /*centra el flex cuando está en columnas*/
 }
 
-.servicio h3{
+.servicio h3,
+.titulo3 h3{
     color: var(--secundario);
-    font-weight: normal; /*grosor de letra*/
+    font-weight: bold; /*grosor de letra*/
 }
 
 .servicio p {
@@ -255,7 +287,7 @@ main{
     text-align: center;
 }
 
-.servicio .iconos{
+.iconos{
     height: 15rem;
     width: 15rem;
     background-color: var(--principal);

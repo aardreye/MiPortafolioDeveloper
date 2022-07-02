@@ -1,0 +1,87 @@
+/*
+  Desde Google Fonts, importe las fuentes "Poppins". Específicamente el Thin 100, Extra-light 200 y Regular 400. 
+*/
+:root{
+  --fuente: 'Poppins', sans-serif;
+  --white: #fff;
+  --hover:#45b77d;
+}
+
+/*
+  Utilice el selector para la etiqueta body
+  
+    Familia de fuentes: 'Poppins', sans-serif
+*/
+body{
+  font-family: var(--fuente);
+}
+
+/*
+  Utilice el selector para la clase "inner-product"
+
+    Radio del borde: 5px
+    Relleno de caja: 30px
+    Color de fondo: white
+*/
+.inner-product{
+  border-radius: 5px;
+  padding: 30px;
+  background-color: var(--white);
+}
+
+/*
+  Utilice el selector para el identificador "list"
+
+    Muestre los elementos mediante "grid"
+    Utilice una plantilla de 4 columnas
+    Los elementos se auto justifican en el centro de la rejilla
+*/
+#list{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+}
+
+/*
+  Al pasar el mouse por encima de la siguiente estructura
+
+  <element class="product-list">
+    …
+    <element class="product">
+         …
+        <element class="product-title">
+            …
+            <a :hover>
+
+  Aplique la propiedad 
+
+    Color #45b77d
+*/
+.product-list .product .inner-product .product-title a:hover{
+  color: var(--hover);
+}
+
+/*
+  Utlice un selector avanzado para la etiqueta small 
+
+    Margen hacia arriba 0.5rem.
+*/
+.product-list .product-container .inner-product small{
+  margin-top: 0.5rem;
+}
+
+
+/*
+  Para dispositivos con ancho 300px: 
+
+  Utilice el selector para el identificador "list"
+
+    Muestre los elementos mediante "grid"
+    Utilice una plantilla de 1 columnas
+    Los elementos se auto justifican en el centro de la rejilla
+
+  Para las etiquetas div con clase "figure-image"
+
+    Desaparece su contenido
+*/
+

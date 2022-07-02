@@ -1,0 +1,3 @@
+<div class="col">
+	<strong>-title-</strong>-description-<a href="-url-">-author-</a>
+</div>

@@ -1,0 +1,13 @@
+Implemente un buscador de noticias, para esto deberá:
+
+1. Cuando se cargue el documento, haga una petición a "https://dataserverdaw.herokuapp.com/noticias/fuente/" 
+2. Procese la respuesta y agregue etiquetas <option> a la etiqueta select#tipo
+   `<option value="-source-">-source-</option>`
+3. Al seleccionar un tipo de noticias, haga un petición a "https://dataserverdaw.herokuapp.com/noticias/xml"
+4. Procese la respuesta y muestre solo las noticias de source seleccionado
+5. Utilice las etiquetas plantilla.txt para reemplazar 
+	-title- por el valor de "title"
+	-description- por el valor de "description"
+	-url- por el valor de "url"
+	-author- por el valor de "author"
+6. Coloque las noticias en la etiqueta div#respuesta

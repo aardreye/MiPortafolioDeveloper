@@ -1,0 +1,186 @@
+:root{                      /*pseudoselector, son elementos que no existen en el html*/
+    --blanco: #FFFFFF;    /*y se usan para almacenar variables de CSS*/
+    --oscuro: #212121;
+    --amarillo: #FFC107;
+    --verde: #339900;
+    --fuente: 'Mulish', sans-serif;
+}
+
+/*START HACK*/
+html{                       /*########################################*/
+    font-size: 62.5%;       /*## Con este fragmento de código       ##*/
+}                           /*## logramos definir una operación     ##*/
+                            /*## matemática que establece que       ##*/
+body{                       /*## 1rem = 10px con el fin de que      ##*/
+    font-size: 16px;        /*## nuestro website sea más renponsive ##*/
+}                           /*########################################*/
+/*END HACK*/
+
+/*START HACK*/
+html{                       /*#################################################*/
+    box-sizing: border-box; /*## Aplica un modelo de diseño de caja natural  ##*/
+}                           /*## a todos los elementos, pero permitiendo que ##*/
+                            /*## los componentes cambien, es decir, que al   ##*/
+*, *:before, *:after {      /*## agregar padding, border o margin el width   ##*/
+    box-sizing: inherit;    /*## no se verá afectado en sus medidas finales  ##*/
+}                           /*#################################################*/
+/*END HACK*/
+
+body{
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%); /*crear un color de fondo degradado*/ /*(de abajo hacia arriba, color_de_inicio donde_inicia, color_final donde_termina)*/ 
+}
+
+h1{
+    font-size: 3.8rem;
+}
+
+h2{
+    font-size: 2.8rem;
+}
+
+h3{
+    font-size: 1.8rem;
+}
+
+h1, h2, h3{
+    text-align: center;
+}
+
+.contenedor__header {
+    display: flex;
+    flex-direction: column;
+}
+
+.receta {
+    display: flex;    
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .contenedor__header {
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        margin-bottom: 10rem;
+    }
+
+    .receta {
+        flex-direction: column; 
+        align-items: center;
+        margin-left: 10rem;
+    }
+}
+
+.receta a {
+    font-size: 3.8rem;
+    font-weight: 700; /*o bold*/
+    text-decoration: none;
+    color: var(--verde);
+}
+
+.receta a:hover {
+    text-decoration:underline;
+    color: var(--verde);
+}
+
+.enlaces {
+    display: flex;
+    justify-content: center;    
+}
+
+.enlaces a {
+    color: var(--amarillo);
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 1.3rem 2rem; /*es el relleno interno del contenedor*/
+}
+
+.tiempo {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .enlaces {
+        flex-direction: column;
+        align-items: center;
+        margin-right: 10rem;
+    }
+
+    .enlaces a {
+        color: var(--amarillo);
+        text-decoration: none;
+        font-size: 1.8rem;
+        padding: .3rem 0; /*es el relleno interno del contenedor*/
+    }
+
+    .tiempo {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .tiempo div {
+        margin: 0 5rem;
+        text-align: center;
+    }
+    
+    .tiempo__minutos {
+        border-style: solid;
+        border-radius: 50%;
+        height: 10rem;
+        width: 10rem;
+        font-size: 3.8rem;
+        
+        display: flex;    
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.contenedor__main {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .contenedor__main {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+        padding: 0 20rem;
+    }
+}
+
+.titulo {
+    font-family: var(--fuente);
+}
+
+.fila1{
+    border-style: solid;
+    border-radius: 10px;
+    height: 15rem;
+    padding: 0 1.5rem;
+}
+
+.fila1 p {
+    text-align: justify;
+}
+
+.fila2 {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .fila1{
+        border-style: solid;
+        border-radius: 10px;
+        height: 100%;
+    }
+
+    .fila2 {
+        margin-top: 10rem;
+        text-align: center;
+    }
+}

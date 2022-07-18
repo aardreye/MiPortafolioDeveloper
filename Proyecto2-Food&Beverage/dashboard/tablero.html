@@ -77,6 +77,47 @@
   </header><!-- End Header -->
 
   <main id="main">
+    <div class="filtros"> 
+      <!--filtro del fetch 1-->      
+      <div class="filtros_contenedor">
+        <div class="etiqueta">
+          <div class="">
+            <h4>Selecciona un restaurante:</h4>
+          </div>
+        </div>
+        
+        <div class="">
+          <div class="">
+            <select id="restaurantes" name="" >
+              <option value= "" label="Elije una opción" selected disabled>Elije una opción</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="respuesta" class="row row-cols-1 row-cols-md-3 g-4"">
+
+        </div>
+      </div> <!--End filtro del fetch 1-->
+
+      <!--filtro del fetch 2-->
+      <div class="filtros_contenedor">
+        <div class="">
+          <div class="">
+            <h4>Elige un menú:</h4>
+          </div>
+        </div>
+        <div class="">
+          <div class="">
+            <select class="menu" name="" >
+              <option value= "" label="Elije una opción" selected disabled>Elije una opción</option>
+            </select>
+          </div>
+        </div>
+        <div id="respuesta" class="row row-cols-1 row-cols-md-3 g-4"">
+        </div>
+      </div><!--End filtro del fetch 2-->
+    </div>
+
       <!-- Pre-loader start -->
       <div class="theme-loader">
           <div class="loader-track">
@@ -96,40 +137,56 @@
                               <!-- order-card start -->
                               <div class="col-md-6 col-xl-3">
                                   <div class="card bg-c-blue order-card">
-                                      <div class="card-block">
-                                          <h6 class="m-b-20">Orders Received</h6>
-                                          <h2 class="text-right"><i class="ti-shopping-cart f-left"></i><span>486</span></h2>
-                                          <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                                      <div class="card-block informacion-nutricional">
+                                       
+                                        <h5 class="m-b-20">Información nutricional</h5>
+                                        <p class="m-b-0">Calorias totales:<span class="f-right">.......kcal</span></p>                                        
+                                        <p class="m-b-0">Proteínas aproximadas:<span class="f-right">............g</span></p>
+                                        <p class="m-b-0">Carbohidratos:<span class="f-right">............g</span></p>
+                                        <p class="m-b-0">Fibras:<span class="f-right">............g</span>></p>
+                                      
                                       </div>
                                   </div>
                               </div>
 
                               <div class="col-md-6 col-xl-3">
                                   <div class="card bg-c-green order-card">
-                                      <div class="card-block">
-                                          <h6 class="m-b-20">Total Sales</h6>
-                                          <h2 class="text-right"><i class="ti-tag f-left"></i><span>1641</span></h2>
-                                          <p class="m-b-0">This Month<span class="f-right">213</span></p>
+                                      <div class="card-block nutrientes">
+
+                                        <h5 class="m-b-20">Nutrientes</h5>
+                                        <p class="m-b-0">Fibras:<span class="f-right">...........g</span></p>
+                                        <p class="m-b-0">Sodio:<span class="f-right">.......mg</span></p>
+                                        <p class="m-b-0">Azucar:<span class="f-right">...........g</span></p>
+                                        <p class="m-b-0">Carbohidratos netos:<span class="f-right">...........g</span></p>     
+                                      
                                       </div>
                                   </div>
                               </div>
 
                               <div class="col-md-6 col-xl-3">
                                   <div class="card bg-c-yellow order-card">
-                                      <div class="card-block">
-                                          <h6 class="m-b-20">Revenue</h6>
-                                          <h2 class="text-right"><i class="ti-reload f-left"></i><span>$42,562</span></h2>
-                                          <p class="m-b-0">This Month<span class="f-right">$5,032</span></p>
+                                      <div class="card-block grasas">
+                                        
+                                        <h5 class="m-b-20">Grasas</h5>
+                                        <p class="m-b-0">Colesterol:<span class="f-right">.......mg</span></p>
+                                        <p class="m-b-0">Grasas:<span class="f-right">...........g</span></p>
+                                        <p class="m-b-0">Grasas saturadas:<span class="f-right">...........g</span></p>
+                                        <p class="m-b-0">Grasas trans:<span class="f-right">...........g</span></p>       
+                                      
                                       </div>
                                   </div>
                               </div>
 
                               <div class="col-md-6 col-xl-3">
                                   <div class="card bg-c-pink order-card">
-                                      <div class="card-block">
-                                          <h6 class="m-b-20">Total Profit</h6>
-                                          <h2 class="text-right"><i class="ti-wallet f-left"></i><span>$9,562</span></h2>
-                                          <p class="m-b-0">This Month<span class="f-right">$542</span></p>
+                                      <div class="card-block porcentajes_diarios">
+                                          
+                                        <h5 class="m-b-20">Porcentajes diarios necesarios</h5>
+                                        <p class="m-b-0">Carbohidratos:<span class="f-right">...........%</span></p>
+                                        <p class="m-b-0">Calorias:<span class="f-right">...........%</span></p>
+                                        <p class="m-b-0">Fibras:<span class="f-right">...........%</span></p>
+                                        <p class="m-b-0">Proteínas:<span class="f-right">...........%</span></p>
+
                                       </div>
                                   </div>
                               </div>
@@ -139,7 +196,7 @@
                               <div class="col-lg-8 col-md-12">
                                   <div class="card">
                                       <div class="card-header">
-                                          <h5>Statistics</h5>
+                                          <h5>Estadísticas</h5>
                                           <div class="card-header-right">
                                               <ul class="list-unstyled card-option">
                                                   <li><i class="fa fa-chevron-left"></i></li>
@@ -159,18 +216,19 @@
                               <div class="col-lg-4 col-md-12">
                                   <div class="card">
                                       <div class="card-header">
-                                          <h5>Customer Feedback</h5>
+                                          <h5>Vista del producto</h5>
                                       </div>
                                       <div class="card-block">
-                                          <span class="d-block text-c-blue f-24 f-w-600 text-center">365247</span>
-                                          <canvas id="feedback-chart" height="100"></canvas>
+                                          <div class="insertar-imagen">
+                                            
+                                          </div>
                                           <div class="row justify-content-center m-t-15">
-                                              <div class="col-auto b-r-default m-t-5 m-b-5">
-                                                  <h4>83%</h4>
+                                              <div class="color-negro col-auto b-r-default m-t-5 m-b-5">
+                                                  <h4>60%</h4>
                                                   <p class="text-success m-b-0"><i class="ti-hand-point-up m-r-5"></i>Positive</p>
                                               </div>
-                                              <div class="col-auto m-t-5 m-b-5">
-                                                  <h4>17%</h4>
+                                              <div class="color-negro col-auto m-t-5 m-b-5">
+                                                  <h4>40%</h4>
                                                   <p class="text-danger m-b-0"><i class="ti-hand-point-down m-r-5"></i>Negative</p>
                                               </div>
                                           </div>
@@ -184,9 +242,9 @@
                                   <div class="card">
                                       <div class="card-block text-center">
                                           <i class="fa fa-envelope-open text-c-blue d-block f-40"></i>
-                                          <h4 class="m-t-20"><span class="text-c-blue">8.62k</span> Subscribers</h4>
-                                          <p class="m-b-20">Your main list is growing</p>
-                                          <button class="btn btn-primary btn-sm btn-round">Manage List</button>
+                                          <h4 class="color-negro m-t-20"><span class="text-c-blue">8.62k</span> Subscriptores</h4>
+                                          <p class="color-negro m-b-20">Esta lista está creciendo</p>
+                                          <button class="btn btn-primary btn-sm btn-round">Administrar lista</button>
                                       </div>
                                   </div>
                               </div>
@@ -195,9 +253,9 @@
                                   <div class="card">
                                       <div class="card-block text-center">
                                           <i class="fa fa-twitter text-c-green d-block f-40"></i>
-                                          <h4 class="m-t-20"><span class="text-c-blgreenue">+40</span> Followers</h4>
-                                          <p class="m-b-20">Your main list is growing</p>
-                                          <button class="btn btn-success btn-sm btn-round">Check them out</button>
+                                          <h4 class="color-negro m-t-20"><span class="text-c-blgreenue">+40</span> Seguidores</h4>
+                                          <p class="color-negro m-b-20">Esta lista está creciendo</p>
+                                          <button class="btn btn-success btn-sm btn-round">Revisar luego</button>
                                       </div>
                                   </div>
                               </div>
@@ -206,9 +264,9 @@
                                   <div class="card">
                                       <div class="card-block text-center">
                                           <i class="fa fa-puzzle-piece text-c-pink d-block f-40"></i>
-                                          <h4 class="m-t-20">Business Plan</h4>
-                                          <p class="m-b-20">This is your current active plan</p>
-                                          <button class="btn btn-danger btn-sm btn-round">Upgrade to VIP</button>
+                                          <h4 class="color-negro m-t-20">Plan de negocio</h4>
+                                          <p class="color-negro m-b-20">Plan activo actual</p>
+                                          <button class="btn btn-danger btn-sm btn-round">Subir a VIP</button>
                                       </div>
                                   </div>
                               </div>
@@ -337,8 +395,8 @@
   <script type="text/javascript " src="assets/js/SmoothScroll.js"></script>
   <script src="assets/js/pcoded.min.js"></script>
   <script src="assets/js/vartical-demo.js"></script>
-  <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>  
-
+  <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="assets/js/dashboard.js"></script>
 </body>
 
 </html>

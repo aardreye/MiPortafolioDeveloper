@@ -21,7 +21,8 @@ let cargarDatos = () => {
 let cargarInfo=(tipo)=>{
     
     //editorial = document.getElementById("tipo").value;
-    
+    console.log('tipo');
+    console.log(tipo);
     fetch("https://dataserverdaw.herokuapp.com/noticias/xml")
       .then(response => response.text())
       .then(data => {
@@ -31,6 +32,8 @@ let cargarInfo=(tipo)=>{
         //console.log(noticias)
         for(let noticia of noticias){
             let name = noticia.getElementsByTagName('source_name')[0].textContent
+            console.log('nombre');
+            console.log(name);
             if(name === tipo){
                 let titulo= noticia.getElementsByTagName('title')[0].textContent
                 let descrip= noticia.getElementsByTagName('description')[0].textContent

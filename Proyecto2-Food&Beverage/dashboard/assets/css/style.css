@@ -45,13 +45,114 @@ h6 {
   font-weight: 600; }
 
 #main {
-  margin-top: 7.5%;
+    margin-top: 40%;
+}
+
+.filtros {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.filtros_contenedor {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 }
 
 #header .logo a{
   font-size: 28px !important;
 }
 
+#navbar {
+  display: flex;
+  justify-content: right;
+}
+
+#restaurantes,
+.menu {
+  border-color: #007aff;
+  border-width: 0.2rem;
+  border-style: solid;
+  border-radius: .3rem;
+
+  height: 2rem;
+  width: 15rem;
+  font-family: Arial, Helvetica, sans-serif;   
+  color: white;
+  background-color: black;
+}
+
+@media (min-width: 540px) {
+  #main {
+    margin-top: 20%;
+  }
+}
+
+@media (min-width: 800px) {
+  .filtros {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 10% 5% 0 5%;    
+  }
+  
+  .filtros_contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
+
+  #main {
+    margin-top: 15%;
+  }
+
+  #navbar {
+    display: flex;
+    justify-content: right;
+  }
+}
+
+@media (min-width: 1100px) {
+  .filtros {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 10% 5% 0 5%;
+    
+  }
+  
+  .filtros_contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+  }
+
+  #main {
+    margin-top: 7.5%;
+  }
+}
+
+.card .card-header,
+.insertar-imagen {
+  display: flex;
+  justify-content: center;
+}
+
+.card .card-header h5,
+.color-negro {
+  color: #000000;
+}
+
+.insertar-imagen img{
+  border-radius: 5px;  
+  width: 80%;
+}
+
+.insertar-imagen img:hover {
+  box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.card {
+  height: 90%;
+}
 /**====== Custom css end ======**/
 /**  =====================
       Theme-preloader css start
@@ -160,7 +261,7 @@ h6 {
   .card .card-header {
     background-color: transparent;
     border-bottom: none;
-    padding: 25px 25px; }
+    padding: 25px 25px 15 25px; }
     .card .card-header .card-header-right {
       border-radius: 0 0 0 7px;
       right: 10px;
@@ -2908,7 +3009,7 @@ a[data-toggle="lightbox"] .img-fluid {
   margin-top: 10px; }
 
 .m-t-15 {
-  margin-top: 15px; }
+  margin-top: 5px; }
 
 .m-t-20 {
   margin-top: 20px; }

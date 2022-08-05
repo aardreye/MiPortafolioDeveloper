@@ -27,7 +27,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
@@ -103,6 +103,6 @@
     }
   },
   "cli": {
-    "analytics": "601f2b66-c6f5-419b-9744-b967638f0193"
+    "analytics": "6fa8ebc8-668e-4f67-ae25-9d123b1e585f"
   }
 }

@@ -144,6 +144,8 @@ h6 {
 .insertar-imagen img{
   border-radius: 5px;  
   width: 80%;
+  max-width: 350px;
+  max-height: 250px;
 }
 
 .insertar-imagen img:hover {

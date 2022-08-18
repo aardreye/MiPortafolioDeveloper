@@ -1,0 +1,34 @@
+{
+    "usuarios": [
+        {
+            "id": 123456789,
+            "nombre": {
+                "nombre": "Aaron",
+                "apellido": "Reyes"
+            },
+            "telefono": "0999821641",
+            "ServiciosContratados": [
+                {
+                    "nombre": "corte de cabello para hombre",
+                    "precio": 24.99,
+                    "asistio": true,
+                    "reseña": "el corte no fue lo esperado"
+                },
+                {
+                    "nombre": "peinado para hombre",
+                    "precio": 14.99,
+                    "asistio": true,
+                    "reseña": null
+                },
+                {
+                    "nombre": "corte de barba",
+                    "precio": 11.99,
+                    "asistio": true,
+                    "reseña": "el barbero fue muy amable"
+                }
+            ],
+            "confirmado": true,
+            "token": "1dfs56g456sd1fs"
+        }
+    ]
+}

@@ -30,6 +30,7 @@
                     id="nombre"
                     type="text"
                     placeholder="Tu Nombre"
+                    value="Aaron Reyes"
                 />
             </div>
 
@@ -38,7 +39,7 @@
                 <input
                     id="fecha"
                     type="date"
-                    min="<?php echo date('Y-m-d', strtotime('+1 day') ); ?>"
+                    min="{{fecha}}"
                 />
             </div>
 
@@ -49,7 +50,7 @@
                     type="time"
                 />
             </div>
-            <input type="hidden" id="id" value="<?php echo $id; ?>" >
+            <input type="hidden" id="id" value="142>" >
 
         </form>
     </div>

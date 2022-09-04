@@ -18,4 +18,18 @@ router.get('/servicios', function(req, res, next) {
 
 });
 
+
+router.post('/citas', function(req, res, next) {
+   models.citas.create({
+      idcitas: req.body.idcitas,
+      fecha: req.body.fecha,
+      hora: req.body.hora,
+      idusuario: req.body.idusuario
+   })
+   .then(respuesta => {
+      res.send(respuesta);
+   })
+   .catch(error => res.status(400).send(error))
+});
+
 module.exports = router;

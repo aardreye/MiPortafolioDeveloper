@@ -1,33 +1,79 @@
 import { DATE_PIPE_DEFAULT_TIMEZONE } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Citaservicios } from '../interfaz/citaservicios';
+import { Cita } from '../interfaz/cita';
+import Swal from 'sweetalert2';
+
+let paso = 1;
+const pasoInicial = 1;
+const pasoFinal = 3;
+const cita = {
+  idusuario: '',
+  nombre: '',
+  fecha: '',
+  hora: '',
+  servicios: new Array<{ idservicios: any; nombre: any; precio: any; }>()
+}
+
+const citaservicios = { 
+  idcita: '',
+  idservicio: ''
+}
 
 @Component({
   selector: 'app-cita',
   templateUrl: './cita.component.html',
 })
+
 export class CitaComponent implements OnInit {
 
   tiempoTranscurrido = Date.now();
   hoy = new Date(this.tiempoTranscurrido);
   fecha = this.hoy.toISOString().split('T')[0];
   
-  constructor() { }
+  constructor(private http:HttpClient) { 
+    
+  }
+
+  guardarCita() {
+    try{
+      const url = 'http://localhost:3000/api/citas';    
+
+      this.http.post(url, cita)
+      .subscribe(res => {
+        let respuesta = res as {resultado: true, mensaje: string, cita: {fecha: any, hora: any, idcitas: any, idusuario: any}};
+        let { idcita } = citaservicios;
+        idcita = respuesta.cita.idcitas
+        console.log(respuesta.mensaje);
+        console.log(respuesta.resultado);
+        console.log(respuesta.cita.idcitas);
+        
+        if((respuesta.resultado)) {
+          Swal.fire({
+            title: 'Cita Creada',
+            text: 'Tu cita fue creada correctamente',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          })
+          .then( () => {
+            setTimeout(() => {
+              window.location.reload();
+            }, 3000);
+          }) 
+        }
+      });
+    }catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Hubo un error al guardar la cita'
+      }) 
+    }
+  }
 
   ngOnInit(): void {
   }
-
-}
-
-let paso = 1;
-const pasoInicial = 1;
-const pasoFinal = 3;
-
-const cita = {
-  id: '',
-  nombre: '',
-  fecha: '',
-  hora: '',
-  servicios: new Array<{ idservicios: any; nombre: any; precio: any; }>()
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -62,6 +108,14 @@ function mostrarSeccion() {
   const pasoSelector = `#paso-${paso}`;
   const seccion = document.querySelector(pasoSelector) as HTMLElement;
   seccion.classList.add('mostrar');
+
+  // Mostrar boton reservar
+  if(paso==3){
+    (document.querySelector('#reservar') as HTMLElement).classList.add('mostrar');    
+  }
+  else{
+    (document.querySelector('#reservar') as HTMLElement).classList.remove('mostrar');
+  }
 
   // Quita la clase de actual al tab anterior
   const tabAnterior = document.querySelector('.actual');
@@ -138,7 +192,6 @@ async function consultarAPI() {
 }
 
 function mostrarServicios(servicios: any[]) {
-  //console.log(servicios)
   servicios.forEach( (servicio: { idservicios: any; nombre: any; precio: any; }) => {
     /*nuestro servivio*/
     const { idservicios, nombre, precio } = servicio;
@@ -183,13 +236,11 @@ function seleccionarServicio(servicio: { idservicios: any; nombre: any; precio: 
     cita.servicios = [...servicios, servicio];
     divServicio.classList.add('seleccionado');
   }
-
-  console.log(cita);
 }
 
 function idCliente() {
   let elementoid = document.querySelector('#id') as HTMLInputElement;
-  cita.id = elementoid.value;
+  cita.idusuario = elementoid.value;
 }
 
 function nombreCliente() {
@@ -220,7 +271,6 @@ function seleccionarHora() {
         mostrarAlerta('Hora No Válida', 'error', '.formulario');
     } else {
         cita.hora = (e.target as HTMLInputElement).value;
-        // console.log(cita);
     }
   })
 }
@@ -316,62 +366,9 @@ function mostrarResumen() {
   horaCita.innerHTML = `<span>Hora:</span> ${hora} Horas`;
   
   // Boton para Crear una cita
-  const botonReservar = document.createElement('BUTTON');
-  botonReservar.classList.add('boton');
-  botonReservar.textContent = 'Reservar Cita';
-  botonReservar.onclick = reservarCita;
+  const botonReservar = document.querySelector('#reservar');
   
   resumen.appendChild(nombreCliente);
   resumen.appendChild(fechaCita);
   resumen.appendChild(horaCita);
-
-  resumen.appendChild(botonReservar);
-}
-
-async function reservarCita() {
-  
-  const { nombre, fecha, hora, servicios, id } = cita;
-
-  //const idServicios = servicios.map( servicio => servicio.id );
-  // console.log(idServicios);
-
-  const datos = new FormData();
-  
-  datos.append('fecha', fecha);
-  datos.append('hora', hora );
-  datos.append('usuarioId', id);
-  //datos.append('servicios', idServicios);
-
-  // console.log([...datos]);
-
-  try {
-      // Petición hacia la api
-      const url = 'http://localhost:3000/api/citas'
-      const respuesta = await fetch(url, {
-          method: 'POST',
-          body: datos
-      });
-
-      const resultado = await respuesta.json();
-      console.log(resultado);
-      
-      if(resultado.resultado) {
-/*           Swal.fire({
-              icon: 'success',
-              title: 'Cita Creada',
-              text: 'Tu cita fue creada correctamente',
-              button: 'OK'
-          }).then( () => {
-              setTimeout(() => {
-                  window.location.reload();
-              }, 3000);
-          }) */
-      }
-  } catch (error) {
-/*       Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Hubo un error al guardar la cita'
-      }) */
-  }
 }

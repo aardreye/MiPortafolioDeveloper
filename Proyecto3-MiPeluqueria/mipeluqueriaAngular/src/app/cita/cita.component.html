@@ -1,10 +1,6 @@
 <h1 class="nombre-pagina">Crear Nueva Cita</h1>
 <p class="descripcion-pagina">Elige tus servicios y coloca tus datos</p>
 
-<?php 
-    include_once __DIR__ . '/../templates/barra.php';
-?>
-
 <div id="app">
     <nav class="tabs">
         <button class="actual" type="button" data-paso="1">Servicios</button>
@@ -50,7 +46,7 @@
                     type="time"
                 />
             </div>
-            <input type="hidden" id="id" value="142>" >
+            <input type="hidden" id="id" value="8" >
 
         </form>
     </div>
@@ -58,11 +54,17 @@
         <h2>Resumen</h2>
         <p class="text-center">Verifica que la información sea correcta</p>
     </div>
+    <div id="reservar" class="seccion">
+        <button        
+        class="boton"
+        (click)="guardarCita()"
+        >Reservar Cita</button>
+    </div>
 
     <div class="paginacion">
         <button 
             id="anterior"
-            class="boton"
+            class="boton"            
         >&laquo; Anterior</button>
 
         <button 
@@ -71,10 +73,3 @@
         >Siguiente &raquo;</button>
     </div>
 </div>
-
-<?php 
-    $script = "
-        <script src='//cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        <script src='build/js/app.js'></script>
-    ";
-?>
